@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Logo from './../../assets/graphics/logo.png';
-import ShowBlock from './showBlock';
+import ShowBlock from './ShowBlock';
 import './styles.scss';
 
 class ShowTable extends Component {
@@ -10,32 +10,61 @@ class ShowTable extends Component {
 
   render(){
     return (
-      <div>
+      <span>
         <span>
-          <div className="box">
+          <div data-test="box">
             <ShowBlock name="Test1" img={Logo}/>
           </div>
-          <div className="box">
+          <div data-test="box">
             <ShowBlock name="Test2" img={Logo}/>
           </div>
-          <div className="box">
+          <div data-test="box">
             <ShowBlock name="Test3" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test4" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test5" img={Logo}/>
           </div>
         </span>
         <span>
-          <div className="box">
+          <div data-test="box">
             <ShowBlock name="Test1" img={Logo}/>
           </div>
-          <div className="box">
+          <div data-test="box">
             <ShowBlock name="Test2" img={Logo}/>
           </div>
-          <div className="box">
+          <div data-test="box">
             <ShowBlock name="Test3" img={Logo}/>
           </div>
+          <div data-test="box">
+            <ShowBlock name="Test4" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test5" img={Logo}/>
+          </div>
         </span>
-      </div>
+        <span>
+          <div data-test="box">
+            <ShowBlock name="Test1" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test2" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test3" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test4" img={Logo}/>
+          </div>
+          <div data-test="box">
+            <ShowBlock name="Test5" img={Logo}/>
+          </div>
+        </span>
+      </span>
     );
   }
-}
+};
 
 export default ShowTable;

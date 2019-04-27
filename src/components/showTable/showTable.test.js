@@ -1,8 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import showTable from './index';
+import { findByTestAttr } from './../../../utils';
+import ShowTable from './index';
 
+const setUp = (props={}) => {
+    const component = shallow(<ShowTable {...props} />);
+    return component;
+};
 
-describe('ShowTable Component', () => {
-  expect(1).toBe(1);
+describe('Box Component', () => {
+    let component;
+    beforeEach(() => {
+        component = setUp();
+    });
+
+    it('Should render without errors.', () => {
+        const wrapper = findByTestAttr(component, 'box');
+        expect(wrapper.length).toBe(15);
+    });
 })
