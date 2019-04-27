@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header';
+import ShowTable from './components/showTable';
 import './app.scss'
 
 class App extends Component {
@@ -7,6 +8,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <section className="main">
+          <ShowTable />
+        </section>
       </div>
     );
   }
