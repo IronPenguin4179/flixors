@@ -14,59 +14,23 @@ class ShowTable extends Component {
             "Test11","Test12","Test13","Test14","Test15"]
   }
 
+        //  <div data-test="box" className="box">
+        //    <ShowBlock name="Test1" img={Logo}/>
+        //  </div>
+
   render(){
     return (
       <span>
         <span>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test1" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test2" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test3" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test4" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test5" img={Logo}/>
-          </div>
+            {this.state.names.map(item => (
+              <div className="box" key={item}> <ShowBlock name={item} img={Logo}/> </div>
+            ))}
         </span>
         <span>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test1" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test2" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test3" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test4" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test5" img={Logo}/>
-          </div>
+          
         </span>
         <span>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test1" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test2" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test3" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test4" img={Logo}/>
-          </div>
-          <div data-test="box" className="box">
-            <ShowBlock name="Test5" img={Logo}/>
-          </div>
+        
         </span>
       </span>
     );
