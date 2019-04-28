@@ -4,10 +4,6 @@ import ShowTable from './components/showTable';
 import './app.scss'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleDataCallback(msg) {
     alert(msg);
   }

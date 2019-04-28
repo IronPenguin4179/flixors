@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './../searchBar';
-import './styles.scss';
 import Logo from './../../assets/graphics/logo.png';
+import './styles.scss';
 
 class Header extends Component {
     constructor (props) {
@@ -9,13 +9,12 @@ class Header extends Component {
       this.doesThing = this.doesThing.bind(this)
     }
     
-    doesThing(event) {
-      event.preventDefault();
+    doesThing() {
       const {dataCallback} = this.props;
       dataCallback("Hello world.");
     }
     render() {
-    return (
+      return (
         <header data-test="headerComponent">
             <div className="wrap">
               <div className="logo">
@@ -28,7 +27,7 @@ class Header extends Component {
               </div>
             </div>
         </header>
-    )
+      )
     }
 }
 
