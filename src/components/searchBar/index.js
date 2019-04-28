@@ -1,20 +1,13 @@
 import React from 'react';
-import queryDb from '../queryDb/index';
+import { queryDb } from './../../helpers';
 import './styles.scss';
 
 const searchBar = (props) => {
   return (
     <section>
       <form id="addItemForm">
-        <input
-          type="text"
-          className="input"
-          id="addInput"
-          placeholder="Search..."
-        />
-        <button className="searchButton" onClick={queryDb('Life')}>
-          Search
-        </button>
+        <input type="search" id="searchInput" name="searchQuery" placeholder="Search..." />
+        <button type="submit" value="Submit" onClick={queryDb}>Search</button>
       </form>
     </section>
   )

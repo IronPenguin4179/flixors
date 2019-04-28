@@ -14,24 +14,14 @@ class ShowTable extends Component {
             "Test11","Test12","Test13","Test14","Test15"]
   }
 
-        //  <div data-test="box" className="box">
-        //    <ShowBlock name="Test1" img={Logo}/>
-        //  </div>
-
   render(){
     return (
       <span>
-        <span>
-            {this.state.names.map(item => (
-              <div className="box" key={item}> <ShowBlock name={item} img={Logo}/> </div>
-            ))}
-        </span>
-        <span>
-          
-        </span>
-        <span>
-        
-        </span>
+        {this.state.names.map(item => (
+          <div className="box" data-test='box' key={item}>
+            <ShowBlock name={item} img={Logo}/> 
+          </div>
+        ))}
       </span>
     );
   }
