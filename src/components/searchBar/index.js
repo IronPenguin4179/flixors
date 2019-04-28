@@ -1,4 +1,5 @@
 import React from 'react';
+import queryDb from '../queryDb/index';
 import './styles.scss';
 
 const searchBar = (props) => {
@@ -11,7 +12,7 @@ const searchBar = (props) => {
           id="addInput"
           placeholder="Search..."
         />
-        <button className="searchButton">
+        <button className="searchButton" onClick={queryDb('Life')}>
           Search
         </button>
       </form>
