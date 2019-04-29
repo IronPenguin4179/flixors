@@ -1,33 +1,52 @@
 import React, { Component } from 'react';
 import Header from './components/header';
 import ShowTable from './components/showTable';
+import axios from 'axios';
 import './app.scss'
 
 class App extends Component {
   constructor(props) {
     super(props)
+    
+    this.state = {
+      page: "table",
+      search: "Life",
+      rawData: "No data yet",
+      names: ["Test1","Test2","Test3"]
+    };
     this.handleDataCallback = this.handleDataCallback.bind(this);
     this.searchTyping = this.searchTyping.bind(this);
   }
   
-  state = {
-    page: "table",
-    search: "Life",
-    data: "No data yet",
-    names: ["Test1","Test2","Test3", "Test4","Test5",
-          "Test6","Test7","Test8","Test9","Test10",
-          "Test11","Test12","Test13","Test14","Test15"]
-  };
-  handleDataCallback = (data) => {
-    this.setState({data})
-    this.setState({page: "Bar"});
-    //this.stater("Bar");
-    this.myState();
+  componentWillMount() {
+    axios.get('https://api.themoviedb.org/3/search/tv?api_key=fb6a1d3f38c3d97f67df6d141f936f29&query=Life')
+        .then((response) => this.prepData(response.data.results))
+    this.setNames(this.state.rawData)
+    console.log("First")
   }
 
-  stater(msg) {
-    this.setState({page: msg});
-    alert(this.state.page)
+  prepData = (data) => {
+    const newNames = this.setNames(data);
+    this.setState({names: newNames, rawData: data})
+  }
+
+  setNames = (list) => {
+    const newNames = [];
+    for (let i=0;i<list.length;i++) {
+      newNames.push({
+        id: i, 
+        name: list[i].name, 
+        show_id: list[i].id,
+        poster_path: list[i].poster_path
+      })
+    };
+    return newNames;
+  }
+
+  handleDataCallback = (data) => {
+    this.setState({rawData: data})
+    this.setState({page: "Bar"});
+    this.myState();
   }
 
   myState = () => {
@@ -44,12 +63,12 @@ class App extends Component {
       <div className="App">
         <button onClick={ () => {this.myState()} }>Name</button>
         <Header getQueryResults={this.handleDataCallback} searchTyping={this.searchTyping} search={this.state.search}/>
+        <section className="main">
+          <ShowTable data={this.state.data} names={this.state.names}/>
+        </section>
       </div>
     );
   }
-}
+  }
 
 export default App;
-      //  <section className="main">
-      //    <ShowTable names={this.state.names} results={this.state.data}/>
-      //  </section>

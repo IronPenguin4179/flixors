@@ -4,16 +4,12 @@ import ShowBlock from './ShowBlock';
 import './styles.scss';
 
 class ShowTable extends Component {
-  constructor() {
-    super()
-  }
-
   render(){
     return (
       <span>
-        {this.props.names.map(item => (
-          <div className="box" data-test='box' key={item}>
-            <ShowBlock name={item} img={Logo}/> 
+        {this.props.names.map((item, index) => (
+          <div className="box" data-test='box' key={index}>
+            <ShowBlock key={item.show_id} name={item.name} img={item.poster_path}/> 
           </div>
         ))}
       </span>
