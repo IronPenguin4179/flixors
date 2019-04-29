@@ -8,32 +8,28 @@ class QueryDb extends Component {
         this.passDataUp = this.passDataUp.bind(this)
     }
 
-    passDataUp() {
-        const {passUpToApp} = this.props;
-        //this.queryDb(this.props.title);
-        //passDataUp(this.state);
-        passUpToApp("All the way Up")
+    passDataUp(data) {
+        const {getQueryResults} = this.props;
+        getQueryResults(data=data)
     }
 
-    state = {
-        data: null
-    }
-
-    queryDb(props) {
-        let searchString = 'https://api.themoviedb.org/3/search/tv?api_key=fb6a1d3f38c3d97f67df6d141f936f29&query='+props.value;
+    queryDb(search) {
+        let searchString = 'https://api.themoviedb.org/3/search/tv?api_key=fb6a1d3f38c3d97f67df6d141f936f29&query='+search;
         axios.get(searchString).then(response => {
-            const data = response.data.results;
-            console.log(data);
-            this.setState({data});
+            const results = response.data.results;
+            console.log("queryDb results")
+            console.log(results[0]);
+            this.passDataUp(results);
         });
     };
     //this.queryDb("Life");
     
     render() {
         return (
-          <button onClick={this.passDataUp}>
+          <button onClick={() => { this.queryDb(this.props.value) }}>
             Search
           </button>
+          <input type="submit" value="Submit" />
         )
     }
 }
