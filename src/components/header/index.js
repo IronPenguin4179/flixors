@@ -6,13 +6,8 @@ import './styles.scss';
 class Header extends Component {
     constructor (props) {
       super(props)
-      this.doesThing = this.doesThing.bind(this)
     }
-    
-    doesThing() {
-      const {dataCallback} = this.props;
-      dataCallback("Hello world.");
-    }
+
     render() {
       return (
         <header data-test="headerComponent">
@@ -23,7 +18,7 @@ class Header extends Component {
                 </button>
               </div>
               <div className="search">
-                <SearchBar />
+                <SearchBar passUpToApp={this.props.dataCallback}/>
               </div>
             </div>
         </header>

@@ -9,9 +9,10 @@ class QueryDb extends Component {
     }
 
     passDataUp() {
-        const {dataCallback} = this.props;
-        this.queryDb(this.props.title);
-        dataCallback(this.state);
+        const {passUpToApp} = this.props;
+        //this.queryDb(this.props.title);
+        //passDataUp(this.state);
+        passUpToApp("All the way Up")
     }
 
     state = {
