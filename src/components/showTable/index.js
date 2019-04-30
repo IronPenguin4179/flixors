@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ShowBlock from './ShowBlock';
+import ShowBlock from './showBlock';
 import ShowInfo from './showInfo';
 import './styles.scss';
 
