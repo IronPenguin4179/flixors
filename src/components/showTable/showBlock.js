@@ -10,11 +10,9 @@ const ShowBlock = (props) => {
     return (
       <div>
         <img data-test="showIMG" src={url} alt={props.name} onClick={() => {showSelect()}} />
-        <a onClick={() => {showSelect()}}>
-          <h3>
+          <h3 onClick={() => {showSelect()}}>
             {props.name}
           </h3>
-        </a>
       </div>
     );
 }

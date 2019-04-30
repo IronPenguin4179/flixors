@@ -20,10 +20,9 @@ class App extends Component {
   }
   
   componentWillMount() {
-    axios.get('https://api.themoviedb.org/3/search/tv?api_key=fb6a1d3f38c3d97f67df6d141f936f29&query=Life')
+    axios.get('https://api.themoviedb.org/3/trending/tv/week?api_key=fb6a1d3f38c3d97f67df6d141f936f29')
     .then((response) => {this.prepDataForTable(response.data.results)})
     this.setNames(this.state.searchData)
-    console.log("First")
   }
   
   render () {
