@@ -22,7 +22,6 @@ class SearchBar extends Component {
     this.props.allProps.searchTyping(event.target.value)
   }
 
-//this.props.allProps.submitSearch; this.handleQuery
   render() {
     return (
       <section>

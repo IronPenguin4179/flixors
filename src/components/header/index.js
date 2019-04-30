@@ -9,7 +9,7 @@ class Header extends Component {
         <header data-test="headerComponent">
             <div className="wrap">
               <div className="logo">
-                <button>
+                <button onClick={() => {this.props.changePageToTable()}}>
                   <img data-test="logoIMG" src={Logo} alt="Logo" />
                 </button>
               </div>

@@ -2,14 +2,19 @@ import React from 'react';
 
 const ShowBlock = (props) => {
     const url = 'https://image.tmdb.org/t/p/w200'+props.img
-    console.log(props.img)
+
+    const showSelect = () => {
+      props.changePageToShow()
+    }
 
     return (
       <div>
-          <img data-test="logoIMG" src={url} alt="Logo" />
-        <h1>
-          {props.name}
-        </h1>
+        <img data-test="showIMG" src={url} alt={props.name} onClick={() => {showSelect()}} />
+        <a href="http://www.google.com">
+          <h3>
+            {props.name}
+          </h3>
+        </a>
       </div>
     );
 }
