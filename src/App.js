@@ -10,7 +10,7 @@ class App extends Component {
     
     this.state = {
       page: false,
-      search: "Life",
+      search: "",
       showData: "No show data yet",
       searchData: "No search data yet",
       names: ["Test1","Test2","Test3"]
@@ -29,7 +29,6 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <button onClick={ () => {this.myState()} }>Name</button>
         <Header getQueryResults={this.handleDataCallback} 
                 searchTyping={this.searchTyping} 
                 changePageToTable={this.changePageToTable}
@@ -46,7 +45,7 @@ class App extends Component {
   showSelect(id) {
     axios.get('https://api.themoviedb.org/3/tv/'+id+'?api_key=fb6a1d3f38c3d97f67df6d141f936f29')
     .then((response) => {
-      this.prepDataForShow(response.data)
+      this.setState({showData: response.data})
     })
   }
 
@@ -57,7 +56,6 @@ class App extends Component {
 
   prepDataForShow = (data) => {
     this.setState({showData: data})
-    console.log(data)
   }
 
   changePageToTable = () => {
@@ -68,7 +66,6 @@ class App extends Component {
     this.showSelect(id);
     this.setState({page: true})
   }
-
   setNames = (list) => {
     const newNames = [];
     for (let i=0;i<list.length;i++) {
@@ -81,18 +78,10 @@ class App extends Component {
     };
     return newNames;
   }
-
   handleDataCallback = (data) => {
-    this.setState({searchData: data})
-    this.setState({page: "Bar"});
-    this.myState();
+    this.setState({searchData: data, names: this.setNames(data)})
+    console.log(this.state.names)
   }
-
-  myState = () => {
-    const v = this.state.searchData[0].id
-    this.showSelect(v)
-  }
- 
   searchTyping(msg) {
     this.setState({search: msg});
   }

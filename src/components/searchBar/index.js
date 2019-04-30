@@ -27,7 +27,7 @@ class SearchBar extends Component {
       <section>
         <form onSubmit={this.handleQuery}>
           <input type="text" value={this.props.allProps.search} onChange={this.handleChange} />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={this.props.allProps.changePageToTable}/>
         </form>
       </section>
     )

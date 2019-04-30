@@ -4,6 +4,7 @@
   
   .box {
     float: left;
-    width: 25%; /* three boxes (use 25% for four, and 50% for two, etc) */
-    padding: 100px; /* if you want space between the images */
+    width: 20%;
+    max-width: 500px;
+    padding: 50px;
   }
