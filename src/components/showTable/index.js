@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShowBlock from './ShowBlock';
+import ShowInfo from './showInfo';
 import './styles.scss';
 
 class ShowTable extends Component {
@@ -16,7 +17,7 @@ class ShowTable extends Component {
       );
     else
       return (
-        <h1>Kawaii</h1>
+        <ShowInfo data={this.props.showData} />
       )
   };
 };

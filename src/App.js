@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       page: false,
       search: "Life",
-      searchData: "No data yet",
+      showData: "No show data yet",
+      searchData: "No search data yet",
       names: ["Test1","Test2","Test3"]
     };
     this.handleDataCallback = this.handleDataCallback.bind(this);
@@ -34,7 +35,8 @@ class App extends Component {
                 changePageToTable={this.changePageToTable}
                 search={this.state.search}/>
         <ShowTable changePageToShow={this.changePageToShow}
-                   data={this.state.data} 
+                   searchData={this.state.searchData} 
+                   showData={this.state.showData}
                    names={this.state.names} 
                    page={this.state.page}/>
       </div>
@@ -54,15 +56,16 @@ class App extends Component {
   }
 
   prepDataForShow = (data) => {
-    this.setState({page: true})
+    this.setState({showData: data})
     console.log(data)
   }
 
   changePageToTable = () => {
-    this.setState({page: false})
+    this.setState({page: false, showData:""})
   }
 
-  changePageToShow = () => {
+  changePageToShow = (id) => {
+    this.showSelect(id);
     this.setState({page: true})
   }
 
