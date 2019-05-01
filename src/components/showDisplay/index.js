@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ShowBlock from './showBlock';
 import ShowInfo from './showInfo';
 import './styles.scss';
