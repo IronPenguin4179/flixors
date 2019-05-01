@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Flixors TV Show Search Application
 
-## Available Scripts
+Flixors is an informational website where users can search for their favorite tv shows to find out information on them
 
-In the project directory, you can run:
+## Structure
 
-### `npm start`
+Flixors was made with React.js library, along with Jest/Enzyme for testing, and Axios for API calls.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+React was chosen for this app for its simpliciy and efficiency. This is a very simple SPA without complicated database interactions. Primarly the app is concerned with the View component in MVC and purely displaying info without modifying it. React specializes in easy display and update of the  in SPA with its Virtual DOM.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Design
 
-### `npm test`
+# App
+App is the primary component that governs the state and transmission of that state throughout its child components. Leaving all state information solely in App allows the site to have one source of information. This way when setState is called the children will recieve the new state. If the children have their own states based on their parent states, the changes don't happen in sync and the rendering of one may not force the other to change causing lots of issues on update. This way eveytime there is a change, every component is aware of it and gets the changed info. App has two children: Header and ShowDisplay.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Header
+Header governs the items in the page header at the top of the screen. Namely a Logo button for returning to the main page from a search result and a SearchBar for searching specific shows.
 
-### `npm run build`
+# SearchBar
+SearchBar handles the update of text in the search box, the triggering of a search and page change, and the Axios GET calls to the API. Using callback functions from App it updates the state of App
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# ShowDisplay
+ShowDisplay is for everything displayed in the main portion of the screen. By default it shows a list of the shows provided to it by App. As long as page is false, it will only show the list of ShowBlock items. Should page be false, ShowDisplay will present the ShowInfo instead.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+# ShowBlock
+This is to represent a specific show's image and title. They may be clicked on to change page state to true and making ShowDisplay render that specific show's ShowInfo page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# ShowInfo
+This displays the information for the specified show. Things such as its poster, name, episode count, and overview.

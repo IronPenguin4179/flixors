@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header';
-import ShowTable from './components/showTable';
+import ShowDisplay from './components/showDisplay';
 import axios from 'axios';
 import './app.scss'
 
@@ -32,7 +32,7 @@ class App extends Component {
                 searchTyping={this.searchTyping} 
                 changePageToTable={this.changePageToTable}
                 search={this.state.search}/>
-        <ShowTable changePageToShow={this.changePageToShow}
+        <ShowDisplay changePageToShow={this.changePageToShow}
                    searchData={this.state.searchData} 
                    showData={this.state.showData}
                    names={this.state.names} 
