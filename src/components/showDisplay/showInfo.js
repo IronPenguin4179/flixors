@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ShowInfo = (props) => {
-  const url = 'https://image.tmdb.org/t/p/w200'+props.data.poster_path
   const data = props.data
+  const url = 'https://image.tmdb.org/t/p/w200'+data.poster_path
 
   return(
       <div>

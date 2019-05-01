@@ -3,6 +3,7 @@ import React from 'react';
 const ShowBlock = (props) => {
     const url = 'https://image.tmdb.org/t/p/w200'+props.img
 
+    // Handles callback to App
     const showSelect = () => {
       props.changePageToShow(props.id)
     }
