@@ -28,15 +28,19 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <Header getQueryResults={this.handleDataCallback} 
+        <div className="Header">
+          <Header getQueryResults={this.handleDataCallback} 
                 searchTyping={this.searchTyping} 
                 changePageToTable={this.changePageToTable}
                 search={this.state.search}/>
-        <ShowDisplay changePageToShow={this.changePageToShow}
+        </div>
+        <div className="ShowDisplay">
+          <ShowDisplay changePageToShow={this.changePageToShow}
                    searchData={this.state.searchData} 
                    showData={this.state.showData}
                    names={this.state.names} 
-                   page={this.state.page}/>
+                   page={this.state.page} />
+        </div>
       </div>
     );
   }

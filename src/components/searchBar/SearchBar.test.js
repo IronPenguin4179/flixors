@@ -1,7 +1,6 @@
 import React from 'react';
-import SearchBar from './components/searchBar';
 import { shallow } from 'enzyme';
-import SearchBar from '.';
+import SearchBar from './index';
 
 describe("Search Bar component", () => {
     it("starts with no show data", () => {

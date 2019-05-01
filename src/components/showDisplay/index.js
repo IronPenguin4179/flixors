@@ -1,6 +1,6 @@
 import React from 'react';
-import ShowBlock from './showBlock';
-import ShowInfo from './showInfo';
+import ShowBlock from '../showBlock/index';
+import ShowInfo from '../showInfo/index';
 import './styles.scss';
 
 const ShowTable = (props) => {
