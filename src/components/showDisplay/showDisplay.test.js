@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr } from './../../../utils';
-import ShowTable from './index';
+import { findByTestAttr } from '../../../utils';
+import ShowDisplay from './index';
 
 const setUp = (props={}) => {
-    const component = shallow(<ShowTable {...props} />);
+    const component = shallow(<ShowDisplay {...props} />);
     return component;
 };
 
