@@ -10,7 +10,7 @@ const ShowBlock = (props) => {
 
     return (
       <div>
-        <img className="showIMG" src={url} alt={props.name} onClick={() => {showSelect()}} />
+        <img className="showInfoLink" src={url} alt={props.name} onClick={() => {showSelect()}} />
           <h3 onClick={() => {showSelect()}}>
             {props.name}
           </h3>

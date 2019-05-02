@@ -5,7 +5,7 @@ const ShowInfo = (props) => {
   const url = 'https://image.tmdb.org/t/p/w200'+data.poster_path
 
   return(
-      <div>
+      <div className="showInfo">
           <img src={url} alt={data.name}/>
           <h3>{data.name}</h3>
           <p>First aired in: {data.first_air_date}</p>

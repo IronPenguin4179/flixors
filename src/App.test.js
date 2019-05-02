@@ -22,11 +22,11 @@ describe("App component", () => {
         expect(appState.searchData).toBe("No search data yet");
     })
     it("renders Header component", () => {
-        const component = wrapper.find("Header");
+        const component = wrapper.find(".Header");
         expect(component.length).toBe(1);
     })
     it("renders ShowDisplay component", () => {
-        const component = wrapper.find("ShowDisplay");
+        const component = wrapper.find(".ShowDisplay");
         console.log(component.debug());
         expect(component.length).toBe(1);
     })

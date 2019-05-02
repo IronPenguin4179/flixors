@@ -12,7 +12,7 @@ const Header = (props) => {
             <img data-test="logoIMG" src={Logo} alt="Logo" />
           </button>
         </div>
-        <div data-test="search">
+        <div data-test="search" className="search">
           <SearchBar allProps={props}/>
         </div>
       </div>
