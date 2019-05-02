@@ -11,10 +11,11 @@ describe("App component", () => {
   })
 
   it("should switch to showInfo upon selection", () => {
-    const component = mount( <App/> )
-    const showBlock = component.find(".showInfoLink")
+    const app = mount( <App/> )
+    const showBlock = app.find(".showInfoLink")
     showBlock.first().simulate("click")
-    const showInfo = component.find(".showInfo")
+    const showInfo = app.find(".showInfo")
     expect(showInfo.length).toBe(1)
+    app.unmount()
 })
 })

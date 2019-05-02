@@ -5,11 +5,12 @@ import { shallow, mount } from 'enzyme';
 
 describe("Show Info component", () => {
     it("should render component", () => {
-        const component = mount( <App/> )
-        const showBlock = component.find(".showInfoLink")
+        const app = mount( <App/> )
+        const showBlock = app.find(".showInfoLink")
         showBlock.first().simulate("click")
-        const showInfo = component.find(".showInfo")
+        const showInfo = app.find(".showInfo")
         expect(showInfo.length).toBe(1)
+        app.unmount()
     })
     it("renders", () => {
       const component = shallow( <ShowInfo data={{poster_path: ""}} />)

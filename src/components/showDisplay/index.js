@@ -9,7 +9,7 @@ const ShowTable = (props) => {
     return (
       <span>
         {props.names.map((item, index) => (
-          <div className="box" data-test='box' key={index}>
+          <div key={index} className="block">
             <ShowBlock id={item.show_id} name={item.name} img={item.poster_path} changePageToShow={props.changePageToShow}/> 
           </div>
         ))}

@@ -1,21 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { findByTestAttr } from '../../../utils';
+import { mount } from 'enzyme';
+import App from '../../App'
 import ShowDisplay from './index';
 
-const setUp = (props={}) => {
-    const component = shallow(<ShowDisplay {...props} />);
-    return component;
-};
-
 describe('Box Component', () => {
-    let component;
-    beforeEach(() => {
-        component = setUp();
-    });
+    it('Should renders multiple blocks without errors.', () => {
+        const app = mount( <App/> )
+        const wrapper = app.find('.block');
 
-    it('Should render without errors.', () => {
-        const wrapper = findByTestAttr(component, 'box');
-        expect(wrapper.length).toBe(15);
+        expect(wrapper.length).toBe(3);
+        app.unmount()
     });
 })

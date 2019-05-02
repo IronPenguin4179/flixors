@@ -16,5 +16,6 @@ describe("Search Bar component", () => {
     const wrapper = app.find(".searchBar");
     wrapper.simulate('change', { target: { value: 'Life'}});
     expect(app.state().search).toBe("Life");
+    app.unmount()
   })
 })
