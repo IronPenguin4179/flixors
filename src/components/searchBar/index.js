@@ -23,7 +23,7 @@ const SearchBar = (props) => {
   return (
     <section>
       <form onSubmit={handleQuery}>
-        <input type="text" value={props.allProps.search} onChange={handleChange} />
+        <input type="text" value={props.allProps.search} onChange={handleChange} className="searchBar"/>
         <input type="submit" value="Search" onClick={props.allProps.changePageToTable}/>
       </form>
     </section>

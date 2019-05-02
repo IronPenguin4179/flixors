@@ -1,14 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import App from '../../App'
 import SearchBar from './index';
 
 describe("Search Bar component", () => {
-    it("starts with no show data", () => {
-        const wrapper = shallow(<SearchBar />);
+  it("renders the component", () => {
+    const component = shallow(<SearchBar allProps={ {search: ""} } />);
+    const wrapper = component.find(".searchBar");
+    expect(wrapper.length).toBe(1);
+  })
 
-    })
-    it("starts with no search data", () => {
-        const wrapper = shallow(<SearchBar />);
-
-    })
+  it("changes when typed into", () => {
+    const app = mount( <App/> )
+    expect(app.state().search).toBe("");  
+    const wrapper = app.find(".searchBar");
+    wrapper.simulate('change', { target: { value: 'Life'}});
+    expect(app.state().search).toBe("Life");
+  })
 })
